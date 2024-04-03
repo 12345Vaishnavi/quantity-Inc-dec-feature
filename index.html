@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantity Increment/Decrement Feature</title>
+  <style>
+    .product-card-container{
+      margin:50px auto;
+      display: flex;
+      width:800px;
+    }
+
+    .product-card{
+      width: 230px;  
+      border: 1px solid green;
+      margin: 20px auto;
+      box-shadow: 0 0 10px grey;
+    }
+
+    .shoe-img{
+      width:230px; 
+      height: 150px;
+      display:block;
+      margin: 0 auto;
+      background-color: #FBAB7E;
+      background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    }
+
+    .product_title{
+      font-size: 20px;  
+      text-align: center;
+    }
+
+    .product-card-details{
+      margin-left: 10px;
+     
+    }
+
+    .product-description{
+      font-size: 12px;
+      padding: 0 1px;
+    }
+
+    .product_price{
+      font-weight: bold;  
+      font-size: 20px;
+    }
+
+    .product-card-btn{
+      background-color: #FBAB7E;
+      background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+      display: block;
+      margin: 20px auto;
+      border: none;
+      padding: 5px 20px;
+      font-size: 18px;
+     }
+
+    .quantity_btn_container{
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+    }
+
+    .btn-quantity{
+       width: 30px;
+       cursor: pointer;
+    }
+
+    .quantity-text{
+      font-size: 25px;
+      margin: 0 5px;
+    }
+
+    
+
+  </style>
+   
+</head>
+<body>
+   
+  <div class="product-card-container">        <!--product-card-container div closing  -->
+
+      <!--1st product Card  -->
+   <div class="product-card">
+    <img src="women-shoes-removebg-preview.png" class="shoe-img"/>
+    <h1 class="product_title">GRANIER</h1>
+    <div class="product-card-details">
+    <p class="product-description">
+      The Roadster Lifestyle Co. Women White & Pink Colourblocked
+      Lightweight Comfort Sneakers </p>
+      <p class="product_price">Rs.872/-</p>
+      <p id="show_quantity1"> 1 x 872 </p>
+      <p id="show_total1"></p></p>  
+    </div> 
+
+    <div class="quantity_btn_container">
+      <img src="minus-button (1).png" class="btn-quantity" onclick="dec1()"/>  
+      <span class="quantity-text" id="quantity-text1">1</span>
+      <img src="add.png" class="btn-quantity" onclick="inc1()"/>
+    </div>
+     <button type="button" class="product-card-btn">Buy now</button></button>
+    
+   </div> 
+  
+
+     <!--2nd product Card  -->
+
+    
+      <div class="product-card">
+        <img src="women-top-removebg-preview.png" class="shoe-img"/>
+        <h1 class="product_title">LYMIO</h1>
+        <div class="product-card-details">
+         <p class="product-description">
+            Lymio Tops for Women | Tops for Women Tops for Women Stylish | top for Girls
+            | top for Women Stylish</p>
+         <p class="product_price">Rs.599/-</p>
+         <p id="show_quantity2"> 1 x 599 </p>
+         <p id="show_total2"></p></p>  
+        </div> 
+        
+        <div class="quantity_btn_container">
+         <img src="minus-button (1).png" class="btn-quantity" onclick="dec2()"/>  
+         <span class="quantity-text" id="quantity-text2" >1</span>
+         <img src="add.png" class="btn-quantity" onclick="inc2()"/>
+        </div>
+        <button type="button" class="product-card-btn">Buy now</button></button>
+        </div> 
+
+
+  <!--3rd product Card  -->
+
+    <div class="product-card">
+        <img src="women-watch-removebg-preview.png" class="shoe-img"/>
+        <h1 class="product_title">GRANIER</h1>
+        <div class="product-card-details">
+         <p class="product-description">
+            IIK COLLECTION Watches for Women Stainless Steel Chain & Diamond Studded Dial Ladies Watch  </p>
+         <p class="product_price">Rs.648/-</p>
+         <p id="show_quantity3"> 1 x 648 </p>
+         <p id="show_total3"></p></p>  
+        </div> 
+        
+        <div class="quantity_btn_container">
+         <img src="minus-button (1).png" class="btn-quantity" onclick="dec3()"/>  
+         <span class="quantity-text" id="quantity-text3">1</span>
+         <img src="add.png" class="btn-quantity" onclick="inc3()"/>
+        </div>
+         <button type="button" class="product-card-btn">Buy now</button></button>
+    </div>   
+
+</div>
+
+  </div>     <!--product-card-container div closing  -->
+
+  <script>
+       /* Product card 1 */
+     const showQuantity1 = document.getElementById("show_quantity1");
+     const showTotal1 = document.getElementById("show_total1");
+     const quantityText1 = document.getElementById("quantity-text1");
+
+   function inc1(){
+     let  quantity1 = parseInt(quantityText1.innerText);
+
+    if(quantity1 < 10){
+      quantityText1.innerText = ++quantity1;
+    }
+    else
+    {
+       alert("you can't add more then 10 items") ;
+    }
+    showQuantity1.innerText = `${quantity1} x 872`;  
+    showTotal1.innerText = `Total: ${quantity1 * 872}`;
+
+   }
+
+   function dec1(){
+    let  quantity1 = parseInt(quantityText1.innerText);
+
+    if(quantity1 > 1){
+     quantityText1.innerText = --quantity1;
+    }
+    else
+    {
+      alert("you can't add less then 1 item");
+    }
+    showQuantity1.innerText = `${quantity1} x 872`;  
+    showTotal1.innerText = `Total: ${quantity1 * 872}`;
+   }
+
+      /* Product card 2 */
+    
+     const showQuantity2 = document.getElementById("show_quantity2");
+     const showTotal2 = document.getElementById("show_total2");
+     const quantityText2 = document.getElementById("quantity-text2");
+
+   function inc2(){
+     let  quantity2 = parseInt(quantityText2.innerText);
+
+    if(quantity2<10){
+      quantityText2.innerText = ++quantity2;
+    }
+    else
+    {
+       alert("you can't add more then 10 items") ;
+    }
+    showQuantity2.innerText = `${quantity2} x 599`;  
+    showTotal2.innerText = `Total: ${quantity2 * 599}`;
+  }
+
+   function dec2(){
+    let  quantity2 = parseInt(quantityText2.innerText);
+
+    if(quantity2 > 1){
+     quantityText2.innerText = --quantity2;
+    }
+    else
+    {
+      alert("you can't add less then 1 item");
+    }
+    showQuantity2.innerText = `${quantity2} x 872`;  
+    showTotal2.innerText = `Total: ${quantity2 * 872}`;
+   }
+
+
+       /* Product card 3 */
+    
+     const showQuantity3 = document.getElementById("show_quantity3");
+     const showTotal3 = document.getElementById("show_total3");
+     const quantityText3 = document.getElementById("quantity-text3");
+
+   function inc3(){
+     let  quantity3 = parseInt(quantityText3.innerText);
+
+    if(quantity3<10){
+      quantityText3.innerText = ++quantity3;
+    }
+    else
+    {
+       alert("you can't add more then 10 items") ;
+    }
+    showQuantity3.innerText = `${quantity3} x 648`;  
+    showTotal3.innerText = `Total: ${quantity3 * 648}`;
+  }
+
+   function dec3(){
+    let  quantity3 = parseInt(quantityText3.innerText);
+
+    if(quantity3 > 1){
+     quantityText3.innerText = --quantity3;
+    }
+    else
+    {
+      alert("you can't add less then 1 item");
+    }
+    showQuantity3.innerText = `${quantity3} x 648`;  
+    showTotal3.innerText = `Total: ${quantity3 * 648}`;
+   }
+     
+      
+
+  </script>
+    
+</body>
+</html>
